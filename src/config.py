@@ -19,8 +19,24 @@ RAW_DATA_PATH = DATA_RAW_DIR / "heart.csv"
 PROCESSED_DATA_PATH = DATA_PROCESSED_DIR / "heart_cleaned.csv"
 DEDUP_DATA_PATH = DATA_PROCESSED_DIR / "heart_deduplicated.csv"
 
-# Global Reproducibility Seed
+# Preprocessed Split Artifact Paths
+X_TRAIN_RAW_PATH = DATA_PROCESSED_DIR / "X_train_raw.csv"
+X_TEST_RAW_PATH = DATA_PROCESSED_DIR / "X_test_raw.csv"
+Y_TRAIN_PATH = DATA_PROCESSED_DIR / "y_train.csv"
+Y_TEST_PATH = DATA_PROCESSED_DIR / "y_test.csv"
+X_TRAIN_PROCESSED_PATH = DATA_PROCESSED_DIR / "X_train_processed.csv"
+X_TEST_PROCESSED_PATH = DATA_PROCESSED_DIR / "X_test_processed.csv"
+
+# Fitted Preprocessor Pipeline Path
+PREPROCESSOR_PATH = MODELS_DIR / "preprocessor.joblib"
+
+# Global Reproducibility Seed & Splitting Configuration
 RANDOM_STATE = 42
+SPLIT_CONFIG = {
+    "test_size": 0.20,
+    "random_state": RANDOM_STATE,
+    "stratify": True,
+}
 
 # Feature Definitions
 TARGET_COLUMN = "target"
@@ -94,3 +110,4 @@ RISK_TIERS = {
     "HIGH": {"threshold": 0.85, "action": "Urgent specialist referral, diagnostic stress imaging, and immediate medical evaluation"},
     "CRITICAL": {"threshold": 1.00, "action": "Emergency medical consultation & intensive cardiovascular monitoring"},
 }
+

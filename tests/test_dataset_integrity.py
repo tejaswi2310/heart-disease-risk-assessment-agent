@@ -59,3 +59,4 @@ def test_surrogate_missing_codes_identified(raw_dataset):
     # thal == 0 is out-of-bounds surrogate code for unrecorded thalassemia
     thal_out_of_bounds = (raw_dataset["thal"] == 0).sum()
     assert thal_out_of_bounds == 7, f"Expected 7 rows with thal==0, got {thal_out_of_bounds}"
+

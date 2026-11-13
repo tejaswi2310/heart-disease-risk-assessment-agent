@@ -162,10 +162,15 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. Run Dataset Inspection
+### 2. Run Dataset Inspection & Preprocessing Pipeline
 ```bash
+# Audit raw dataset schema and quality
 python scripts/inspect_dataset.py
+
+# Execute leak-free preprocessing and train/test partitioning
+python scripts/run_preprocessing.py
 ```
+> For complete preprocessing design details, see [PREPROCESSING.md](PREPROCESSING.md).
 
 ### 3. Generate Exploratory Visualizations
 ```bash
@@ -184,3 +189,4 @@ pytest tests/ -v
 - **No Synthetic Fabrication:** Real raw records are verified without data invention.
 - **Leak-Free Methodology:** Preprocessing transformers are fit exclusively on training folds during cross-validation.
 - **Reproducibility:** Seeded random states (`RANDOM_STATE = 42`) across all components.
+

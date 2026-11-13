@@ -122,3 +122,4 @@ def generate_eda_figures(csv_path: str = "data/raw/heart.csv", output_dir: str =
 
 if __name__ == "__main__":
     generate_eda_figures()
+

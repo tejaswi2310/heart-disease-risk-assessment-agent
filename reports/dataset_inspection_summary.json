@@ -1,0 +1,431 @@
+{
+  "dataset_path": "data\\raw\\heart.csv",
+  "shape": {
+    "rows": 1025,
+    "columns": 14
+  },
+  "columns_summary": [
+    {
+      "column": "age",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 41,
+      "unique_sample": [
+        52,
+        53,
+        70,
+        61,
+        62,
+        58,
+        55,
+        46,
+        54,
+        71
+      ]
+    },
+    {
+      "column": "sex",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_sample": [
+        1,
+        0
+      ]
+    },
+    {
+      "column": "cp",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 4,
+      "unique_sample": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "column": "trestbps",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 49,
+      "unique_sample": [
+        125,
+        140,
+        145,
+        148,
+        138,
+        100,
+        114,
+        160,
+        120,
+        122
+      ]
+    },
+    {
+      "column": "chol",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 152,
+      "unique_sample": [
+        212,
+        203,
+        174,
+        294,
+        248,
+        318,
+        289,
+        249,
+        286,
+        149
+      ]
+    },
+    {
+      "column": "fbs",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_sample": [
+        0,
+        1
+      ]
+    },
+    {
+      "column": "restecg",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "unique_sample": [
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "column": "thalach",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 91,
+      "unique_sample": [
+        168,
+        155,
+        125,
+        161,
+        106,
+        122,
+        140,
+        145,
+        144,
+        116
+      ]
+    },
+    {
+      "column": "exang",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_sample": [
+        0,
+        1
+      ]
+    },
+    {
+      "column": "oldpeak",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 40,
+      "unique_sample": [
+        1.0,
+        3.1,
+        2.6,
+        0.0,
+        1.9,
+        4.4,
+        0.8,
+        3.2,
+        1.6,
+        3.0
+      ]
+    },
+    {
+      "column": "slope",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 3,
+      "unique_sample": [
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "column": "ca",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 5,
+      "unique_sample": [
+        2,
+        0,
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "column": "thal",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 4,
+      "unique_sample": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "column": "target",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_sample": [
+        0,
+        1
+      ]
+    }
+  ],
+  "duplicates": {
+    "count": 723,
+    "percentage": 70.54,
+    "unique_rows": 302
+  },
+  "target": {
+    "column_name": "target",
+    "raw_distribution": {
+      "1": 526,
+      "0": 499
+    },
+    "raw_percentages": {
+      "1": 51.32,
+      "0": 48.68
+    },
+    "dedup_distribution": {
+      "1": 164,
+      "0": 138
+    },
+    "dedup_percentages": {
+      "1": 54.3,
+      "0": 45.7
+    }
+  },
+  "numerical_stats": {
+    "age": {
+      "mean": 54.43,
+      "std": 9.07,
+      "min": 29.0,
+      "25%": 48.0,
+      "50%": 56.0,
+      "75%": 61.0,
+      "max": 77.0,
+      "skewness": -0.249,
+      "iqr_lower": 28.5,
+      "iqr_upper": 80.5,
+      "iqr_outliers": 0,
+      "z3_outliers": 0
+    },
+    "trestbps": {
+      "mean": 131.61,
+      "std": 17.52,
+      "min": 94.0,
+      "25%": 120.0,
+      "50%": 130.0,
+      "75%": 140.0,
+      "max": 200.0,
+      "skewness": 0.74,
+      "iqr_lower": 90.0,
+      "iqr_upper": 170.0,
+      "iqr_outliers": 30,
+      "z3_outliers": 7
+    },
+    "chol": {
+      "mean": 246.0,
+      "std": 51.59,
+      "min": 126.0,
+      "25%": 211.0,
+      "50%": 240.0,
+      "75%": 275.0,
+      "max": 564.0,
+      "skewness": 1.074,
+      "iqr_lower": 115.0,
+      "iqr_upper": 371.0,
+      "iqr_outliers": 16,
+      "z3_outliers": 13
+    },
+    "thalach": {
+      "mean": 149.11,
+      "std": 23.01,
+      "min": 71.0,
+      "25%": 132.0,
+      "50%": 152.0,
+      "75%": 166.0,
+      "max": 202.0,
+      "skewness": -0.514,
+      "iqr_lower": 81.0,
+      "iqr_upper": 217.0,
+      "iqr_outliers": 4,
+      "z3_outliers": 4
+    },
+    "oldpeak": {
+      "mean": 1.07,
+      "std": 1.18,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.8,
+      "75%": 1.8,
+      "max": 6.2,
+      "skewness": 1.211,
+      "iqr_lower": -2.7,
+      "iqr_upper": 4.5,
+      "iqr_outliers": 7,
+      "z3_outliers": 7
+    }
+  },
+  "categorical_stats": {
+    "sex": {
+      "value_counts": {
+        "1": 713,
+        "0": 312
+      },
+      "percentages": {
+        "1": 69.56,
+        "0": 30.44
+      }
+    },
+    "cp": {
+      "value_counts": {
+        "0": 497,
+        "2": 284,
+        "1": 167,
+        "3": 77
+      },
+      "percentages": {
+        "0": 48.49,
+        "2": 27.71,
+        "1": 16.29,
+        "3": 7.51
+      }
+    },
+    "fbs": {
+      "value_counts": {
+        "0": 872,
+        "1": 153
+      },
+      "percentages": {
+        "0": 85.07,
+        "1": 14.93
+      }
+    },
+    "restecg": {
+      "value_counts": {
+        "1": 513,
+        "0": 497,
+        "2": 15
+      },
+      "percentages": {
+        "1": 50.05,
+        "0": 48.49,
+        "2": 1.46
+      }
+    },
+    "exang": {
+      "value_counts": {
+        "0": 680,
+        "1": 345
+      },
+      "percentages": {
+        "0": 66.34,
+        "1": 33.66
+      }
+    },
+    "slope": {
+      "value_counts": {
+        "1": 482,
+        "2": 469,
+        "0": 74
+      },
+      "percentages": {
+        "1": 47.02,
+        "2": 45.76,
+        "0": 7.22
+      }
+    },
+    "ca": {
+      "value_counts": {
+        "0": 578,
+        "1": 226,
+        "2": 134,
+        "3": 69,
+        "4": 18
+      },
+      "percentages": {
+        "0": 56.39,
+        "1": 22.05,
+        "2": 13.07,
+        "3": 6.73,
+        "4": 1.76
+      }
+    },
+    "thal": {
+      "value_counts": {
+        "2": 544,
+        "3": 410,
+        "1": 64,
+        "0": 7
+      },
+      "percentages": {
+        "2": 53.07,
+        "3": 40.0,
+        "1": 6.24,
+        "0": 0.68
+      }
+    }
+  },
+  "anomalies_and_quality": {
+    "ca_eq_4_count": 18,
+    "thal_eq_0_count": 7,
+    "trestbps_zero_or_neg": 0,
+    "trestbps_gt_200": 0,
+    "chol_zero_or_neg": 0,
+    "chol_gt_400": 13
+  },
+  "correlation_with_target": {
+    "oldpeak": -0.4384,
+    "exang": -0.438,
+    "cp": 0.4349,
+    "thalach": 0.4229,
+    "ca": -0.3821,
+    "slope": 0.3455,
+    "thal": -0.3378,
+    "sex": -0.2795,
+    "age": -0.2293,
+    "trestbps": -0.1388,
+    "restecg": 0.1345,
+    "chol": -0.1,
+    "fbs": -0.0412
+  }
+}

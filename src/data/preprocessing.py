@@ -227,3 +227,4 @@ def transform_patient_record(
     df_patient = validate_patient_record(patient_data)
     transformed_record = fitted_preprocessor.transform(df_patient)
     return transformed_record
+

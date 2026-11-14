@@ -178,3 +178,4 @@ def save_split_artifacts(
     if X_val is not None and y_val is not None:
         X_val.to_csv(out_dir / "X_val_raw.csv", index=False)
         y_val.to_frame(name=TARGET_COLUMN).to_csv(out_dir / "y_val.csv", index=False)
+

@@ -29,6 +29,10 @@ X_TEST_PROCESSED_PATH = DATA_PROCESSED_DIR / "X_test_processed.csv"
 
 # Fitted Preprocessor Pipeline Path
 PREPROCESSOR_PATH = MODELS_DIR / "preprocessor.joblib"
+CHAMPION_MODEL_PATH = MODELS_DIR / "champion_model.joblib"
+CHAMPION_METADATA_PATH = MODELS_DIR / "champion_metadata.json"
+MODEL_RESULTS_CSV_PATH = REPORTS_DIR / "model_comparison_results.csv"
+MODEL_RESULTS_JSON_PATH = REPORTS_DIR / "model_comparison_results.json"
 
 # Global Reproducibility Seed & Splitting Configuration
 RANDOM_STATE = 42

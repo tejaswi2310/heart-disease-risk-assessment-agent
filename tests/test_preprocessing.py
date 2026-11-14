@@ -152,3 +152,4 @@ def test_single_patient_record_inference(clean_splits, tmp_path):
     loaded = load_preprocessor(saved_path)
     vec_reloaded = transform_patient_record(loaded, patient)
     np.testing.assert_allclose(vec, vec_reloaded)
+

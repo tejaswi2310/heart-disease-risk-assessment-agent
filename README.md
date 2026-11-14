@@ -107,24 +107,29 @@ flowchart TD
 
 ---
 
-## 🔬 Phase 1: Machine Learning Benchmark Plan
+## 🔬 Phase 1: Machine Learning Benchmark Results
 
-### Algorithms Evaluated
-1. **Logistic Regression:** Linear baseline with L2 regularization.
-2. **Random Forest Classifier:** Non-linear ensemble with feature importance attribution.
-3. **XGBoost:** Gradient boosted decision trees optimized for tabular predictive power.
-4. **Support Vector Machine (SVM):** Non-linear RBF kernel classification.
-5. **K-Nearest Neighbors (KNN):** Distance-based non-parametric classifier.
-6. **Multi-Layer Perceptron (MLP):** Feedforward neural network with ReLU activations.
-7. *(Optional Extension)* **Artificial Neural Network (ANN):** Deep learning architecture with dropout regularization.
+The Phase 1 comparative benchmark evaluated all 6 supervised algorithms using **Stratified 5-Fold Cross-Validation** on the training partition ($N = 241$), followed by holdout evaluation on the untouched test partition ($N = 61$):
 
-### Evaluation Metrics
-* **Accuracy:** Overall diagnostic correctness.
-* **Precision:** Minimizing false alarms in clinical referrals.
-* **Recall (Sensitivity):** Maximizing detection of positive heart disease cases (crucial for medical screening).
-* **F1-Score:** Harmonic balance of precision and recall.
-* **ROC-AUC:** Threshold-independent discriminatory power.
-* **Confusion Matrix:** Granular count of True Positives, False Positives, True Negatives, and False Negatives.
+| Model | CV ROC-AUC | Test Acc | Test Prec | Test Rec (Sensitivity) | Test Spec | Test F1 | Test ROC-AUC | False Negatives (FN) | Overfitting Gap ($\Delta_{\text{Acc}}$) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Support Vector Machine (SVM)\*** | **0.918 ± 0.041** | **0.853** | **0.853** | **0.879** | **0.821** | **0.866** | **0.894** | **4** | **+0.031** |
+| **Logistic Regression** | 0.925 ± 0.035 | 0.820 | 0.824 | 0.849 | 0.786 | 0.836 | 0.897 | 5 | +0.060 |
+| **Random Forest** | 0.903 ± 0.043 | 0.820 | 0.824 | 0.849 | 0.786 | 0.836 | 0.898 | 5 | +0.160 |
+| **K-Nearest Neighbors (KNN)** | 0.898 ± 0.036 | 0.836 | 0.871 | 0.818 | 0.857 | 0.844 | 0.911 | 6 | +0.164 |
+| **XGBoost** | 0.902 ± 0.033 | 0.803 | 0.800 | 0.849 | 0.750 | 0.824 | 0.858 | 5 | +0.151 |
+| **Multi-Layer Perceptron (MLP)** | 0.894 ± 0.039 | 0.803 | 0.839 | 0.788 | 0.821 | 0.812 | 0.883 | 7 | +0.110 |
+
+*\* Selected Clinical Champion Model: Serialized into `models/champion_model.joblib`.*
+
+> For in-depth diagnostic curves, confusion matrices, and feature importance analyses, see [MODEL_EVALUATION.md](MODEL_EVALUATION.md).
+
+### Algorithms Evaluated & Champion Rationale
+1. **Support Vector Machine (SVM) — 🏆 Champion:** Achieved the highest holdout recall (87.88%), lowest fatal false negatives (4 missed cases), and strongest generalization (minimal 3.1% overfitting gap).
+2. **Logistic Regression:** Solid linear baseline with calibrated probabilities and low overfitting (+0.060).
+3. **Random Forest & XGBoost:** Strong ensemble learners that exhibited significant overfitting (+0.160 and +0.151 gaps) on the small clinical cohort ($N = 241$).
+4. **K-Nearest Neighbors:** Strong discriminative AUC (0.911), but lower sensitivity (81.82%).
+5. **Multi-Layer Perceptron:** Lowest sensitivity (78.79%) and highest false negatives (7 missed cases), confirming that small tabular clinical cohorts benefit more from regularized max-margin kernels than deep feedforward networks.
 
 ---
 

@@ -10,9 +10,14 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 DATA_RAW_DIR = DATA_DIR / "raw"
 DATA_PROCESSED_DIR = DATA_DIR / "processed"
+MONITORING_DIR = DATA_DIR / "monitoring"
 REPORTS_DIR = PROJECT_ROOT / "reports"
+PATIENT_REPORTS_DIR = REPORTS_DIR / "patient_reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 MODELS_DIR = PROJECT_ROOT / "models"
+
+# Phase 2 Monitoring Log Path
+MONITORING_LOG_PATH = MONITORING_DIR / "patient_monitoring_log.jsonl"
 
 # Dataset Files
 RAW_DATA_PATH = DATA_RAW_DIR / "heart.csv"

@@ -179,3 +179,4 @@ def predict_patient_risk(
         "validation_warnings": warnings,
         "patient_summary": df_clean.iloc[0].to_dict(),
     }
+

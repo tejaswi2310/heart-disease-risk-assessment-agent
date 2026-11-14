@@ -133,18 +133,22 @@ The Phase 1 comparative benchmark evaluated all 6 supervised algorithms using **
 
 ---
 
-## 🤖 Phase 2: AI Healthcare Monitoring Agent Plan
+## 🤖 Phase 2: AI Healthcare Monitoring Agent
 
-The Phase 2 agent will provide an automated, auditable, and interpretable clinical assistant:
+The Phase 2 agent provides an autonomous clinical decision-support and longitudinal patient monitoring workflow, reusing the Phase 1 champion pipeline (`models/champion_model.joblib`) without retraining:
 
-1. **Patient Record Ingestion & Validation:** Validates incoming physiological parameters (blood pressure, cholesterol, ECG, ST depression) against physiological plausibility bounds.
-2. **Risk Prediction Engine:** Executes inference using the champion model saved from Phase 1, generating calibrated posterior probabilities.
-3. **Health-Risk Triage Report Generator:** Translates numeric probabilities into structured triage levels:
-   - **Low Risk ($\le 30\%$):** Routine annual wellness screening.
-   - **Moderate Risk ($31\% - 60\%$):** Lifestyle interventions and scheduled follow-up.
-   - **High Risk ($61\% - 85\%$):** Urgent cardiologist referral and diagnostic imaging.
-   - **Critical Risk ($> 85\%$):** Immediate medical intervention and continuous telemetry.
-4. **Longitudinal Patient Monitoring Logs:** Appends patient observations to an audit log (`logs/patient_monitoring_log.jsonl`), tracking vitals trajectories and alerting clinicians to escalating risk trends over time.
+```
+PATIENT RECORD → INPUT VALIDATION → PATIENT DATA ANALYSIS → PREPROCESSING PIPELINE → TRAINED ML MODEL → RISK PREDICTION → RISK INTERPRETATION → HEALTH-RISK REPORT → MONITORING LOG
+```
+
+### Key Agent Capabilities
+1. **Clinical Intake & Validation (`src/agent/validation.py`):** Enforces completeness across all 13 predictors; checks physiological bounds; detects crisis vitals; rejects invalid or corrupted records with informative errors.
+2. **Pluggable Prediction (`src/agent/predictor.py`):** Abstract `BaseRiskPredictor` interface allows the ML model to be replaced in the future without altering agent workflow logic.
+3. **Risk Interpretation & Attribution (`src/agent/interpretation.py`):** Categorizes risk into 4 tiers (Low, Moderate, High, Critical); analyzes positive risk drivers (e.g. ST depression, fluoroscopy vessels) and protective markers; formulates evidence-based AHA/ACC recommendations.
+4. **Structured Health-Risk Reports (`src/agent/report_generator.py`):** Generates structured JSON reports for EHR systems and publication-grade Markdown consultation documents with mandatory medical disclaimers.
+5. **Longitudinal Patient Monitoring (`src/agent/monitoring.py`):** Appends to persistent JSONL log (`data/monitoring/patient_monitoring_log.jsonl`); distinguishes between new assessments, previous assessments, and longitudinal monitoring trajectories.
+
+> For complete architectural diagrams and component specifications, see [AI_AGENT_ARCHITECTURE.md](AI_AGENT_ARCHITECTURE.md).
 
 ---
 
@@ -177,16 +181,23 @@ python scripts/run_preprocessing.py
 ```
 > For complete preprocessing design details, see [PREPROCESSING.md](PREPROCESSING.md).
 
-### 3. Generate Exploratory Visualizations
+### 3. Run Machine Learning Benchmarking (Phase 1)
 ```bash
-python scripts/generate_eda_plots.py
+python scripts/train_and_compare_models.py
 ```
-Generated plots will be saved in `reports/figures/`.
+> Evaluates all 6 models, generates 5 clinical figures in `reports/figures/`, and serializes the champion pipeline to `models/champion_model.joblib`. See [MODEL_EVALUATION.md](MODEL_EVALUATION.md).
 
-### 4. Run Test Suite
+### 4. Run AI Monitoring Agent Demonstration (Phase 2)
+```bash
+python scripts/run_agent_demo.py
+```
+> Demonstrates new patient intake, 3-month follow-up longitudinal trend analysis, previous assessment retrieval, and invalid data rejection.
+
+### 5. Run Complete Test Suite
 ```bash
 pytest tests/ -v
 ```
+> Executes all 44 unit tests covering data integrity, preprocessing invariance, model pipeline, QA audits, and agent workflows.
 
 ---
 

@@ -125,3 +125,4 @@ tests/test_qa_validation.py      .............       [13 passed]
 1. **Cohort Sample Size:** The underlying deduplicated cohort comprises 302 unique patients. While representative of benchmark Cleveland clinic cohorts, external validation on larger modern cohorts (e.g., UK Biobank or NHANES) is recommended before acute hospital deployment.
 2. **Binary Cutoff at 50% Stenosis:** The ground truth label corresponds to $\ge 50\%$ vessel diameter narrowing via angiography. It does not grade microvascular ischemia or non-obstructive coronary plaques.
 3. **Platt Probability Calibration on Small Samples:** For SVM, probability calibration via Platt scaling provides smooth risk estimates, but should be interpreted alongside clinical judgment and diagnostic imaging.
+

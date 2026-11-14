@@ -3,6 +3,10 @@ Orchestration script for Phase 1 Data Preprocessing.
 Executes leak-free preprocessing, train/test partitioning, pipeline fitting, and transformation verification.
 """
 
+import os
+os.environ["LOKY_MAX_CPU_COUNT"] = "1"
+os.environ["PYTHONWARNINGS"] = "ignore"
+
 import sys
 from pathlib import Path
 

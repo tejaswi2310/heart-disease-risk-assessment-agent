@@ -166,3 +166,4 @@ Pipeline(steps=[
   # Output: Predicted Class = 1 (Disease Present) | Risk Probability = 90.80%
   ```
 - **Readiness for Phase 2:** The pipeline accepts raw clinical dictionaries, dataframes, or JSON payloads directly, without requiring any manual feature engineering prior to inference.
+

@@ -100,3 +100,4 @@ def test_champion_metadata():
     assert "metrics_holdout_test" in meta
     assert meta["metrics_holdout_test"]["recall"] >= 0.85
     assert meta["metrics_holdout_test"]["accuracy"] >= 0.80
+

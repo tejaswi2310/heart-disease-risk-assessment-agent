@@ -46,12 +46,24 @@ class SurrogateMissingHandler(BaseEstimator, TransformerMixin):
             self.feature_names_in_ = [f"feat_{i}" for i in range(X.shape[1])]
         return self
 
-    def transform(self, X: Union[pd.DataFrame, np.ndarray]) -> pd.DataFrame:
+    def transform(self, X: Union[pd.DataFrame, np.ndarray, dict, pd.Series, list]) -> pd.DataFrame:
         if isinstance(X, pd.DataFrame):
             X_df = X.copy()
+        elif isinstance(X, dict):
+            X_df = pd.DataFrame([X])
+        elif isinstance(X, pd.Series):
+            X_df = X.to_frame().T
+        elif isinstance(X, list) and len(X) > 0 and isinstance(X[0], dict):
+            X_df = pd.DataFrame(X)
         else:
             cols = self.feature_names_in_ if self.feature_names_in_ else ALL_FEATURE_COLUMNS
             X_df = pd.DataFrame(X, columns=cols)
+
+        # Validate that expected columns are present
+        expected_cols = set(self.feature_names_in_ if self.feature_names_in_ else ALL_FEATURE_COLUMNS)
+        missing_cols = expected_cols - set(X_df.columns)
+        if missing_cols:
+            raise ValueError(f"Input patient record is missing required feature(s): {sorted(list(missing_cols))}")
 
         # Replace surrogate code 4 in ca with NaN
         if self.ca_col in X_df.columns:

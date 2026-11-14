@@ -3,6 +3,10 @@ Master orchestration script for Phase 1: Machine Learning Model Training and Com
 Trains, tunes, evaluates, visualizes, and serializes the 6 benchmark models.
 """
 
+import os
+os.environ["LOKY_MAX_CPU_COUNT"] = "1"
+os.environ["PYTHONWARNINGS"] = "ignore"
+
 import json
 import sys
 from pathlib import Path

@@ -89,3 +89,4 @@ class Phase1MLPredictor(BaseRiskPredictor):
             "model_name": self.model_name,
             "model_artifact": str(self.model_path.name),
         }
+

@@ -158,3 +158,4 @@ class PatientMonitoringService:
             "risk_delta": risk_delta,
             "vital_deltas": vital_deltas,
         }
+

@@ -212,3 +212,4 @@ class HeartDiseaseRiskAssessmentAgent:
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(markdown_content)
         return out_path
+

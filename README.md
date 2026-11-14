@@ -4,9 +4,10 @@
 [![Scikit-Learn](https://img.shields.io/badge/scikit--learn-1.4%2B-orange.svg)](https://scikit-learn.org/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-3.4%2B-red.svg)](https://xgboost.ai/)
 [![Dataset](https://img.shields.io/badge/Kaggle-johnsmith88%2Fheart--disease-blueviolet.svg)](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset)
-[![Tests](https://img.shields.io/badge/pytest-passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/pytest-91%20passed-brightgreen.svg)](tests/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.60%2B-FF4B4B.svg)](https://streamlit.io/)
 
-An end-to-end clinical machine learning and intelligent healthcare monitoring system designed for early cardiovascular risk stratification, automated diagnostic evaluation, and longitudinal patient tracking.
+An end-to-end clinical machine learning and intelligent healthcare monitoring system designed for early cardiovascular risk stratification, automated diagnostic evaluation, and longitudinal patient tracking — with a full Streamlit web UI.
 
 ---
 
@@ -18,6 +19,8 @@ Cardiovascular disease remains the leading cause of global mortality. The **Hear
   Rigorous data cleaning, leak-free preprocessing, and comparative benchmarking of 6+ supervised classification algorithms (Logistic Regression, Random Forest, XGBoost, SVM, KNN, MLP, and optional ANN) evaluated across six standard clinical diagnostic metrics.
 * **Phase 2 — AI Healthcare Monitoring Agent:**  
   An autonomous monitoring agent that ingests electronic patient health records, runs predictive inference via the optimal Phase 1 model, synthesizes patient-specific health-risk triage reports, and maintains a longitudinal monitoring log for early intervention.
+* **Phase 3 — Streamlit Web UI:**  
+  A clean, professional, healthcare-grade decision-support interface connecting directly to the Phase 2 agent. Provides patient intake forms, real-time risk assessment, longitudinal monitoring charts, model governance dashboards, and one-click report export (Markdown + JSON).
 
 ---
 
@@ -193,11 +196,17 @@ python scripts/run_agent_demo.py
 ```
 > Demonstrates new patient intake, 3-month follow-up longitudinal trend analysis, previous assessment retrieval, and invalid data rejection.
 
-### 5. Run Complete Test Suite
+### 5. Launch the Streamlit Web UI (Phase 3)
+```bash
+streamlit run app.py
+```
+> Opens the healthcare decision-support dashboard in your browser. Navigate to **Patient Assessment** in the left sidebar to submit a clinical record and receive an AI-generated cardiovascular risk assessment.
+
+### 6. Run Complete Test Suite
 ```bash
 pytest tests/ -v
 ```
-> Executes all 44 unit tests covering data integrity, preprocessing invariance, model pipeline, QA audits, and agent workflows.
+> Executes all 91 unit tests covering data integrity, preprocessing invariance, model pipeline, QA audits, agent workflows, and UI module conformance.
 
 ---
 

@@ -198,3 +198,4 @@ class HealthRiskReportGenerator:
 > {disclaimer}
 """
         return md
+

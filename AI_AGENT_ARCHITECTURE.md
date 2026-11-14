@@ -152,3 +152,4 @@ The agent explicitly differentiates three clinical scenarios:
 
 * **Interactive CLI Demonstration:** Run `python scripts/run_agent_demo.py` to observe baseline intake, follow-up tracking, history retrieval, and input rejection in action.
 * **Automated Test Suite:** Run `pytest tests/test_agent.py -v` (11 dedicated agent tests; 44 tests passing across full repository).
+

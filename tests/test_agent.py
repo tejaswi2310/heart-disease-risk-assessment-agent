@@ -191,3 +191,4 @@ def test_pluggable_predictor_injection(temp_monitoring_service, sample_patient_r
     assert result["risk_probability"] == 0.88
     assert result["risk_category"] == "CRITICAL"
     assert result["json_report"]["diagnostic_assessment"]["model_used"] == "Mock Test Predictor"
+

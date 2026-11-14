@@ -167,3 +167,4 @@ def validate_patient_record(
         warnings.append(f"Pronounced exercise-induced ST depression ({oldpeak} mm) indicates extensive myocardial ischemia.")
 
     return clean_patient_id, clean_features, warnings
+

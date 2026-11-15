@@ -412,3 +412,4 @@ class TestUIConfigAlignment:
             assert 0.0 <= cfg["threshold"] <= 1.0, (
                 f"RISK_TIERS['{tier}']['threshold'] = {cfg['threshold']} is out of [0,1]"
             )
+
